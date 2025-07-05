@@ -40,16 +40,11 @@ class Solution:
         r = 0
         max_l = 0
         while(r < len(s)):
-            if s[r] not in map:
-                map[s[r]] = r
-                max_l = max(max_l,r-l+1)
-                r += 1
-            else:
-                if map[s[r]] >= l:
+            if s[r] in map and map[s[r]] >= l:
                     l = map[s[r]] + 1
-                map[s[r]] = r
-                max_l = max(max_l,r-l+1)
-                r += 1    
+            map[s[r]] = r
+            max_l = max(max_l,r-l+1)
+            r += 1    
         return max_l
                 
 
